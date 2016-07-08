@@ -1,14 +1,21 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
-  before_action :authenticate_staff
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def authenticate_staff
+  def authenticate_staff!
     if user_signed_in?
-      if current_user.role == "resident"
+      redirect_to "" if current_user.role != "staff"
+    else
+      redirect_to new_user_session_path
+    end
+  end
 
-      end
+  def authenticate_resident!
+    if user_signed_in?
+      redirect_to "" if current_user.role != "resident"
+    else
+      redirect_to new_user_session_path
     end
   end
 
