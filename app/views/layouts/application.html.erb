@@ -14,12 +14,13 @@
     <div class="container">
       <% if user_signed_in? %>
         <% if current_user.role == "resident" %>
-          <%= link_to "Resident Dashboard", resident_dashboard_path %>
-        <% else %>
+          <%= link_to "Resident Dashboard", resident_portal_path %>
+        <% elsif current_user.role == "staff" %>
           <%= link_to 'Residents', residents_path %>
           <%= link_to 'Config', config_path %>
         <% end %>
         <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+      <% end %>
       <%= yield %>
     </div>
   </body>

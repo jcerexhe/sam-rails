@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'staff_portal/dashboard'
 
-  get 'staff-dashboard', to: 'staff_portal#dashboard'
+  get 'staff-dashboard', to: 'staff_portal#dashboard', as: :staff_portal
 
-  get 'resident-dashboard', to: 'resident_portal#dashboard'
+  get 'resident-dashboard', to: 'resident_portal#dashboard', as: :resident_portal
 
   resources :rooms
   resources :lodgings
