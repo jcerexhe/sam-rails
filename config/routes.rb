@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'resident_dashboard', to: 'resident_portal#dashboard'
+
   resources :rooms
   resources :lodgings
   resources :buildings
