@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :buildings
   root to: 'pages#home'
 
+  get 'residents', to: 'pages#residents'
+  get 'config', to: 'pages#configuration'
+
   devise_for :users
 
 end

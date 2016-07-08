@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.association :lodging %>
-    <%= f.association :user %>
+    <%= f.association :user, :include_blank => false, :label_method => lambda { |user| "#{user.room.present?} #{user.first_name} #{user.last_name}" } %>
     <%= f.input :number %>
   </div>
 

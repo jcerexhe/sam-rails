@@ -3,12 +3,18 @@
   <head>
     <title>Samrails</title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= link_to 'Residents', residents_path %>
+      <%= link_to 'Config', config_path %>
+      <%= yield %>
+    </div>
   </body>
 </html>
