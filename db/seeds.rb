@@ -14,6 +14,3 @@ rooms = lodgings.each { |lodging| Room.create(lodging_id: lodging.id, number: "#
 
 residents = rooms.each { |room| User.create(email: Faker::Internet.email, password: "12345678", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, street: Faker::Address.street_address, city: Faker::Address.city, postcode: "2000", state: "NSW", country: "AU", mobile: "0412 123 123") }
 
-
-
-
