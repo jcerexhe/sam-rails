@@ -1,0 +1,26 @@
+<table id="residents_table" class="table">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Room Number</th>
+      <th>Building</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @residents.each do |r| %>
+      <tr>
+        <td><%= r.first_name %></td>
+        <td><%= r.last_name %></td>
+        <td><%= r.room.lodging.code + "-" + r.room.number %></td>
+        <td><%= r.room.lodging.building.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#residents_table').DataTable();
+  });
+</script>
