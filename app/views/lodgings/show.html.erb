@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Building:</strong>
+  <%= @lodging.building %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @lodging.code %>
+</p>
+
+<%= link_to 'Edit', edit_lodging_path(@lodging) %> |
+<%= link_to 'Back', lodgings_path %>

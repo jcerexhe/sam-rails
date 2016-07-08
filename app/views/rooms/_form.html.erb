@@ -1,0 +1,13 @@
+<%= simple_form_for(@room) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :lodging %>
+    <%= f.association :user %>
+    <%= f.input :number %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

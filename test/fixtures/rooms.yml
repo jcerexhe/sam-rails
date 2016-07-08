@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lodging: one
+  user: one
+  number: MyString
+
+two:
+  lodging: two
+  user: two
+  number: MyString
