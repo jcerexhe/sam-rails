@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_staff!
     if user_signed_in?
-      redirect_to root_path if current_user.role != "staff"
+      redirect_to unauthorised_path if current_user.role != "staff"
     else
       redirect_to new_user_session_path
     end
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_resident!
     if user_signed_in?
-      redirect_to root_path if current_user.role != "resident"
+      redirect_to unauthorised_path if current_user.role != "resident"
     else
       redirect_to new_user_session_path
     end
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     elsif user.role == "resident"
       return resident_portal_path
     else
-      return root_path
+      return unauthorised_path
     end
   end
 

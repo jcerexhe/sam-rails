@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :buildings
   root to: 'pages#home'
 
+  get 'unauthorised', to: 'pages#unauthorised'
   get 'residents', to: 'pages#residents'
   get 'config', to: 'pages#configuration'
 
