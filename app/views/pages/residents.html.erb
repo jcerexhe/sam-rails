@@ -12,8 +12,8 @@
       <tr>
         <td><%= r.first_name %></td>
         <td><%= r.last_name %></td>
-        <td><%= r.room.lodging.code + "-" + r.room.number %></td>
-        <td><%= r.room.lodging.building.name %></td>
+        <td><%= r.room.lodging.code + "-" + r.room.number if r.room %></td>
+        <td><%= r.room.lodging.building.name if r.room %></td>
       </tr>
     <% end %>
   </tbody>
