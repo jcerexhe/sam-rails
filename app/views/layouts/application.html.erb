@@ -5,28 +5,25 @@
     <%= csrf_meta_tags %>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
   </head>
 
   <body>
-    <div class="container">
-      <% if user_signed_in? %>
-        <% if current_user.role == 'resident' %>
-          <%= link_to 'Resident Dashboard', resident_portal_path %>
-          <%= link_to 'My Room', '#' %>
-          <%= link_to 'Pay Rent', '#' %>
-          <%= link_to 'Maintenance Requests', resident_maintenance_requests_path %>
-        <% elsif current_user.role == 'staff' %>
-          <%= link_to 'Residents', residents_path %>
-          <%= link_to 'Buildings', buildings_path %>
-          <%= link_to 'Maintenance Requests', maintenance_requests_path %>
-          <%= link_to 'Config', config_path %>
-        <% end %>
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-      <% end %>
-      <%= yield %>
+    <%= render 'layouts/navbar' %>
+
+    <div class="container-fluid">
+      <div class="row">
+
+        <%= render 'layouts/sidebar' %>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <%= yield %>
+        </div>
+      </div>
     </div>
+
   </body>
 </html>
