@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @maintenance_request.user %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @maintenance_request.location %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @maintenance_request.description %>
+</p>
+
+<p>
+  <strong>Urgency:</strong>
+  <%= @maintenance_request.urgency %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @maintenance_request.status %>
+</p>
+
+<%= link_to 'Edit', edit_maintenance_request_path(@maintenance_request) %> |
+<%= link_to 'Back', maintenance_requests_path %>

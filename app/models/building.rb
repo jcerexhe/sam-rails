@@ -1,5 +1,5 @@
 class Building < ApplicationRecord
-  has_many :lodgings
+  has_many :lodgings, :dependent => :destroy
 
   def current_capacity
     cap = 0

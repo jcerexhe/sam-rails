@@ -1,6 +1,6 @@
 class Lodging < ApplicationRecord
-  belongs_to :building
-  has_many :rooms
+  belongs_to :building, :dependent => :destroy
+  has_many :rooms, :dependent => :destroy
 
   def current_capacity
     cap = 0
