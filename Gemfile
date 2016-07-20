@@ -11,7 +11,6 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'simple_form'
-gem 'simple_form'
 gem 'country_select'
 gem 'active_link_to'
 gem 'rolify'
