@@ -11,8 +11,6 @@
       <th>Urgency</th>
       <th>Status</th>
       <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -25,8 +23,6 @@
         <td><%= maintenance_request.urgency %></td>
         <td><%= maintenance_request.status %></td>
         <td><%= link_to 'Show', maintenance_request %></td>
-        <td><%= link_to 'Edit', edit_maintenance_request_path(maintenance_request) %></td>
-        <td><%= link_to 'Destroy', maintenance_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

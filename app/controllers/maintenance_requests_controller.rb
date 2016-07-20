@@ -62,7 +62,6 @@ class MaintenanceRequestsController < ApplicationController
   end
 
   def authenticate_show!
-    return if user_signed_in? && current_user == @maintenance_request.user || authenticate_staff!
-    redirect_to unauthorised_path
+    redirect_to unauthorised_path unless user_signed_in? && (current_user == @maintenance_request.user || current_user.role == "staff")
   end
 end

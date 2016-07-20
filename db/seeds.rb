@@ -18,22 +18,18 @@ Building.delete_all
 num_buildings = 1+rand(3)
 num_buildings.times do |i|
   b = Building.create(name: "Building #{i+1}", street: Faker::Address.street_address, city: Faker::Address.city, postcode: "200#{i}", state: "NSW", country: "AU")
-  puts "Building"
   # get a random number of lodgings for each building
   num_lodings = 1+rand(5)
   num_lodings.times do |j|
     l = Lodging.create(building_id: b.id, code: "#{b.id}0-#{j}")
-    puts "Lodging"
     # get a random number of rooms for each lodging
     num_rooms = 1+rand(10)
     num_rooms.times do |k|
       r = Room.create(lodging_id: l.id, number: "#{l.id}0-#{k}")
-      puts "Room"
       # randomly assign a person to the room
       person = 1+rand(100)
       if person%2 == 0
         u = User.create(email: Faker::Internet.email, password: "12345678", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, street: Faker::Address.street_address, city: Faker::Address.city, postcode: "2000", state: "NSW", country: "AU", mobile: "0412 123 123", role: "resident")
-        puts "Resident"
         r.update_attributes({user: u})
       end
     end
@@ -43,3 +39,9 @@ end
 # get a test admin and reident to log in with
 User.create(email: "admin@test.com", password: "password", first_name: "Test", last_name: "Admin", role: "staff")
 User.create(email: "resident@test.com", password: "password", first_name: "Test", last_name: "Resident", role: "resident")
+
+# get a random amount of maintenance requests
+m = 1+rand(20)
+m.times do |i|
+  MaintenanceRequest.create(user: User.first, location: Faker::Address.street_address, description: Faker::Lorem.paragraph, status: "incomplete", urgency: "not urgent")
+end
