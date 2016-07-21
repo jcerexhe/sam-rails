@@ -11,28 +11,12 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <!-- <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Help</a></li> -->
-        <% if user_signed_in? %>
-          <% if current_user.role == 'resident' %>
-            <li><%= link_to 'Resident Dashboard', resident_portal_path %></li>
-            <li><%= link_to 'My Room', '#' %></li>
-            <li><%= link_to 'Pay Rent', '#' %></li>
-            <li><%= link_to 'Maintenance Requests', resident_maintenance_requests_path %></li>
-          <% elsif current_user.role == 'staff' %>
-            <li><%= link_to 'Residents', residents_path %></li>
-            <li><%= link_to 'Buildings', buildings_path %></li>
-            <li><%= link_to 'Maintenance Requests', maintenance_requests_path %></li>
-            <li><%= link_to 'Config', config_path %></li>
-          <% end %>
-          <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
-        <% end %>
       </ul>
-<!--       <form class="navbar-form navbar-right">
+      <!--
+      <form class="navbar-form navbar-right">
         <input type="text" class="form-control" placeholder="Search...">
-      </form> -->
+      </form>
+      -->
     </div>
   </div>
 </nav>

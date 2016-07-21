@@ -13,6 +13,7 @@ Room.delete_all
 User.delete_all
 Lodging.delete_all
 Building.delete_all
+MaintenanceRequest.delete_all
 
 # get a random number of buildings
 num_buildings = 1+rand(3)
@@ -41,7 +42,8 @@ User.create(email: "admin@test.com", password: "password", first_name: "Test", l
 User.create(email: "resident@test.com", password: "password", first_name: "Test", last_name: "Resident", role: "resident")
 
 # get a random amount of maintenance requests
-m = 1+rand(20)
+m = 1+rand(50)
 m.times do |i|
-  MaintenanceRequest.create(user: User.first, location: Faker::Address.street_address, description: Faker::Lorem.paragraph, status: "incomplete", urgency: "not urgent")
+  u = User.order("RANDOM()").first
+  MaintenanceRequest.create(user: u, location: Faker::Address.street_address, description: Faker::Lorem.paragraph, status: "incomplete", urgency: "not urgent")
 end
