@@ -5,6 +5,6 @@ class PagesController < ApplicationController
   def unauthorised
   end
 
-  def configuration
+  def user_show
   end
 end
