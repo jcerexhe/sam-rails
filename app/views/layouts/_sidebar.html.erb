@@ -1,12 +1,17 @@
 <div class="col-sm-3 col-md-2 sidebar">
   <ul class="nav nav-sidebar">
     <% if user_signed_in? %>
+      <center>
+        <img src="<%= current_user.image_url ? current_user.image_url : image_path('unknownuser.png') %>" class="img-circle img-responsive">
+        <h4><%= current_user.first_name + " " + current_user.last_name %></h4>
+      </center>
+      <br>
       <% if current_user.role == 'resident' %>
         <li class="<%= 'active' if is_active_link?(resident_portal_path, :exclusive)%>">
           <%= active_link_to 'Resident Dashboard', resident_portal_path %>
         </li>
-        <li class="<%= 'active' if is_active_link?("#", :exclusive)%>">
-          <%= active_link_to 'Profile', '#' %>
+        <li class="<%= 'active' if is_active_link?(show_user_path, :exclusive)%>">
+          <%= active_link_to 'Profile', show_user_path %>
         </li>
         <li class="<%= 'active' if is_active_link?("#", :exclusive)%>">
           <%= active_link_to 'Pay Rent', '#' %>
@@ -17,6 +22,9 @@
       <% elsif current_user.role == 'staff' %>
         <li class="<%= 'active' if is_active_link?(staff_portal_path, :exclusive)%>">
           <%= active_link_to 'Dashboard', staff_portal_path %>
+        </li>
+        <li class="<%= 'active' if is_active_link?(show_user_path, :exclusive)%>">
+          <%= active_link_to 'Profile', show_user_path %>
         </li>
         <li class="<%= 'active' if is_active_link?(residents_path, :exclusive)%>">
           <%= active_link_to 'Residents', residents_path %>

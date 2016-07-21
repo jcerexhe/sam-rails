@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   # common pages
   get 'unauthorised', to: 'pages#unauthorised'
+  get 'users/profile', to: 'pages#user_show', as: :show_user
   get 'config', to: 'pages#configuration'
 
   # resources

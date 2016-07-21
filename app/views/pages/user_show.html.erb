@@ -1,0 +1,8 @@
+<%= link_to "Edit Profile", edit_user_registration_path %>
+<br>
+<b>Address:</b>
+<p><%= current_user.street %>, <%= current_user.city %>, <%= current_user.postcode %></p>
+<p><%= current_user.state %>, <%= current_user.country %></p>
+<b>Contact Details:</b>
+<p><b>Email:</b> <%= current_user.email %></p>
+<p><b>M: </b><%= current_user.mobile %></p>

@@ -38,8 +38,8 @@ num_buildings.times do |i|
 end
 
 # get a test admin and reident to log in with
-User.create(email: "admin@test.com", password: "password", first_name: "Test", last_name: "Admin", role: "staff")
-User.create(email: "resident@test.com", password: "password", first_name: "Test", last_name: "Resident", role: "resident")
+User.create(email: "admin@test.com", password: "password", first_name: "Test", last_name: "Admin", role: "staff", street: Faker::Address.street_address, city: Faker::Address.city, postcode: "2000", state: "NSW", country: "AU", mobile: "0412 123 123")
+User.create(email: "resident@test.com", password: "password", first_name: "Test", last_name: "Resident", role: "resident", street: Faker::Address.street_address, city: Faker::Address.city, postcode: "2000", state: "NSW", country: "AU", mobile: "0412 123 123")
 
 # get a random amount of maintenance requests
 m = 1+rand(50)
