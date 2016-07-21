@@ -3,4 +3,8 @@ class StaffPortalController < ApplicationController
 
   def dashboard
   end
+
+  def residents
+    @residents = User.where(role: "resident")
+  end
 end

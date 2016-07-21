@@ -4,5 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :room
+  mount_uploader :image, UserImageUploader
+
+  has_one :room, :dependent => :destroy
+  has_many :maintenance_requests
 end

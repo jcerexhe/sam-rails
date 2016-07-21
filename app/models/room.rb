@@ -1,6 +1,6 @@
 class Room < ApplicationRecord
-  belongs_to :lodging
-  belongs_to :user, optional: true
+  belongs_to :lodging, :dependent => :destroy
+  belongs_to :user, optional: true, :dependent => :destroy
 
   def current_capacity
     return 1 if user

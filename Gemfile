@@ -15,6 +15,9 @@ gem 'country_select'
 gem 'active_link_to'
 gem 'rolify'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'stripe'
+gem 'carrierwave'
+gem 'cloudinary'
 
 group :development, :test do
   gem 'byebug', platform: :mri

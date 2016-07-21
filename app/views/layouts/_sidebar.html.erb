@@ -1,6 +1,37 @@
 <div class="col-sm-3 col-md-2 sidebar">
   <ul class="nav nav-sidebar">
-    <!-- <li class="<%#= 'active' if is_active_link?(root_path, :exclusive) %>"><%#= link_to 'Index', root_path %></li>
-    <li class="<%#= 'active' if is_active_link?(nsw_crime_data_path, :inclusive) %>"><%#= link_to 'NSW Crime Data', nsw_crime_data_path %></li> -->
+    <% if user_signed_in? %>
+      <% if current_user.role == 'resident' %>
+        <li class="<%= 'active' if is_active_link?(resident_portal_path, :exclusive)%>">
+          <%= active_link_to 'Resident Dashboard', resident_portal_path %>
+        </li>
+        <li class="<%= 'active' if is_active_link?("#", :exclusive)%>">
+          <%= active_link_to 'Profile', '#' %>
+        </li>
+        <li class="<%= 'active' if is_active_link?("#", :exclusive)%>">
+          <%= active_link_to 'Pay Rent', '#' %>
+        </li>
+        <li class="<%= 'active' if is_active_link?(resident_maintenance_requests_path, :exclusive)%>">
+          <%= active_link_to 'Maintenance Requests', resident_maintenance_requests_path %>
+        </li>
+      <% elsif current_user.role == 'staff' %>
+        <li class="<%= 'active' if is_active_link?(staff_portal_path, :exclusive)%>">
+          <%= active_link_to 'Dashboard', staff_portal_path %>
+        </li>
+        <li class="<%= 'active' if is_active_link?(residents_path, :exclusive)%>">
+          <%= active_link_to 'Residents', residents_path %>
+        </li>
+        <li class="<%= 'active' if is_active_link?(buildings_path, :exclusive)%>">
+          <%= active_link_to 'Buildings', buildings_path %>
+        </li>
+        <li class="<%= 'active' if is_active_link?(maintenance_requests_path, :exclusive)%>">
+          <%= active_link_to 'Maintenance Requests', maintenance_requests_path %>
+        </li>
+        <li class="<%= 'active' if is_active_link?(config_path, :exclusive)%>">
+          <%= active_link_to 'Config', config_path %>
+        </li>
+      <% end %>
+      <li><%= active_link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+    <% end %>
   </ul>
 </div>
